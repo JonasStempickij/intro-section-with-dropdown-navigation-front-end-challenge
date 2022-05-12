@@ -1,0 +1,170 @@
+/*
+    Variables
+*/
+
+$desktop: 800px;
+
+$bright-orangle: hsl(31, 77%, 52%);
+$dark-cyan: hsl(184, 100%, 22%);
+$very-dark-cyan: hsl(179, 100%, 13%);
+
+$transparent-white: hsla(0, 0%, 100%, 0.75);
+$very-light-gray: hsl(0, 0%, 95%);
+
+/*
+    Import google font Overpass
+*/
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display&display=swap');
+
+/*
+  Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/*
+  Remove default margin, padding
+*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*
+  Allow percentage-based heights in the application
+*/
+html,
+body {
+    height: 100%;
+}
+
+/*
+  6. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/*
+  Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+body {
+  font-family: 'Lexend Deca';
+  font-size: 15px;
+  background-color: $very-light-gray;
+}
+
+main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 1rem;
+  @media (min-width:$desktop) {
+      height: 100%;
+  }
+}
+
+h1 {
+  font-family: 'Big Shoulders Display';
+  text-transform: uppercase;
+  font-size: 3rem;
+  letter-spacing: 0.5px;
+  color: $very-light-gray;
+}
+
+p {
+  font-weight: 400;
+  line-height: 1.5rem;
+  letter-spacing: 0.5px;
+  color: $transparent-white;
+}
+
+article {
+  border-radius: 2rem;
+  max-width: 400px;
+  margin: 0px auto;
+  @media (min-width: $desktop) {
+    display: flex;
+    flex-direction: row;
+    max-width: 990px;
+  }
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 2rem;
+  padding: 3rem;
+}
+
+a {
+  text-decoration: none;
+  padding: 1rem 2.5rem;
+  margin-top: auto;
+  border: 2px solid $very-light-gray;
+  border-radius: 2rem;
+  background-color: $very-light-gray;
+  white-space: nowrap;
+}
+
+section a:hover {
+  color: $very-light-gray;
+  border: 2px solid $very-light-gray;
+}
+
+.sedans {
+  border-radius: 0.5rem 0.5rem 0 0;
+  background-color: $bright-orangle;
+  a {
+    color: $bright-orangle;
+    &:hover {
+      background-color: $bright-orangle;
+    }
+  }
+  @media (min-width: $desktop) {
+    border-radius: 0.5rem 0 0 0.5rem ;
+  }
+}
+
+.suvs {
+  background-color: $dark-cyan;
+  a {
+      color: $dark-cyan;
+  
+      &:hover {
+        background-color: $dark-cyan;
+      }
+    }
+}
+
+.luxury {
+  background-color: $very-dark-cyan;
+  border-radius: 0 0 0.5rem 0.5rem;
+  a {
+      color: $very-dark-cyan;
+  
+      &:hover {
+        background-color: $very-dark-cyan;
+      }
+    }
+    @media (min-width: $desktop){
+      border-radius: 0 0.5rem 0.5rem 0;
+    }
+}
