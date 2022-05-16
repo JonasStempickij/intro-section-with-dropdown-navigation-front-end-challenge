@@ -2,20 +2,14 @@
     Variables
 */
 
-$desktop: 800px;
-
-$bright-orangle: hsl(31, 77%, 52%);
-$dark-cyan: hsl(184, 100%, 22%);
-$very-dark-cyan: hsl(179, 100%, 13%);
-
-$transparent-white: hsla(0, 0%, 100%, 0.75);
-$very-light-gray: hsl(0, 0%, 95%);
+$white: hsl(0,0%,98%);
+$md-gray: hsl(0,0%,41%);
+$black: hsl(0,0%,8%);
 
 /*
     Import google font Overpass
 */
-@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Epilogue&display=swap');
 
 /*
   Use a more-intuitive box-sizing model.
@@ -24,6 +18,7 @@ $very-light-gray: hsl(0, 0%, 95%);
 *::before,
 *::after {
     box-sizing: border-box;
+    outline: 1px red solid
 }
 
 /*
@@ -64,107 +59,119 @@ select {
     font: inherit;
 }
 
+// Animations
+@keyframes growDown {
+  0% {
+
+    transform: scaleY(0)
+  }
+
+  80% {
+
+    transform: scaleY(1.1)
+  }
+
+  100% {
+
+    transform: scaleY(1)
+  }
+
+}
+
+// Composition
+
 body {
-  font-family: 'Lexend Deca';
-  font-size: 15px;
-  background-color: $very-light-gray;
+  font-family: 'Epilogue', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: $md-gray;
+  background-color: $white;
 }
 
-main{
+header {
   display: flex;
-  justify-content: center;
+}
+
+
+button {
+  background-color: transparent;
+  color: $md-gray;
+  border: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.logo {
+  margin-right: 4rem;
+}
+
+
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.nav-link {
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  padding: 5rem 1rem;
-  @media (min-width:$desktop) {
-      height: 100%;
-  }
-}
-
-h1 {
-  font-family: 'Big Shoulders Display';
-  text-transform: uppercase;
-  font-size: 3rem;
-  letter-spacing: 0.5px;
-  color: $very-light-gray;
-}
-
-p {
-  font-weight: 400;
-  line-height: 1.5rem;
-  letter-spacing: 0.5px;
-  color: $transparent-white;
-}
-
-article {
-  border-radius: 2rem;
-  max-width: 400px;
-  margin: 0px auto;
-  @media (min-width: $desktop) {
-    display: flex;
-    flex-direction: row;
-    max-width: 990px;
-  }
-}
-
-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  row-gap: 2rem;
-  padding: 3rem;
-}
-
-a {
+  gap: 1rem;
+  color: $md-gray;
   text-decoration: none;
-  padding: 1rem 2.5rem;
-  margin-top: auto;
-  border: 2px solid $very-light-gray;
-  border-radius: 2rem;
-  background-color: $very-light-gray;
   white-space: nowrap;
-}
-
-section a:hover {
-  color: $very-light-gray;
-  border: 2px solid $very-light-gray;
-}
-
-.sedans {
-  border-radius: 0.5rem 0.5rem 0 0;
-  background-color: $bright-orangle;
-  a {
-    color: $bright-orangle;
-    &:hover {
-      background-color: $bright-orangle;
-    }
-  }
-  @media (min-width: $desktop) {
-    border-radius: 0.5rem 0 0 0.5rem ;
+  &:hover {
+    color: $black;
   }
 }
 
-.suvs {
-  background-color: $dark-cyan;
-  a {
-      color: $dark-cyan;
-  
-      &:hover {
-        background-color: $dark-cyan;
-      }
-    }
+.dropdown {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.75rem;
+  position: relative;
 }
 
-.luxury {
-  background-color: $very-dark-cyan;
-  border-radius: 0 0 0.5rem 0.5rem;
-  a {
-      color: $very-dark-cyan;
-  
-      &:hover {
-        background-color: $very-dark-cyan;
-      }
-    }
-    @media (min-width: $desktop){
-      border-radius: 0 0.5rem 0.5rem 0;
-    }
+.dropdown-content {
+  position: absolute;
+  top:calc(100% + 0.5rem)
 }
+
+// BUTTONS
+
+.btn-fill{
+  background-color: $black;
+  color: $white;
+  border: 2px transparent solid;
+  &:hover {
+    background-color: transparent;
+    border-color: $black;
+    color: $black;
+  }
+}
+
+.btn-outline{
+  border: 2px $md-gray solid;
+  &:hover {
+    border-color: $black;
+    color: $black;
+  }
+}
+
+.btn-light {
+  color: $md-gray;
+  &:hover {
+    color: $black;
+  }
+}
+
+.auth-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-left: auto;
+}
+
